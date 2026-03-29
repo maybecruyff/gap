@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synkro Dashboard - Attendance Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        
+        .sidebar {
+            background: linear-gradient(180deg, #2d3748 0%, #1a202c 100%);
+            box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-item {
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+        
+        .nav-item:hover {
+            background: rgba(59, 130, 246, 0.1);
+            border-left-color: #3b82f6;
+        }
+        
+        .nav-item.active {
+            background: rgba(59, 130, 246, 0.15);
+            border-left-color: #3b82f6;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .attendance-table {
+            backdrop-filter: blur(10px);
+        }
+        
+        .present { background: #10b981; color: white; }
+        .absent { background: #ef4444; color: white; }
+        .late { background: #f59e0b; color: white; }
+        .leave { background: #6b7280; color: white; }
+        
+        .chart-container {
+            position: relative;
+            height: 300px;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-slide-in {
+            animation: slideIn 0.5s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar -->
+        <div class="sidebar w-64 h-full flex flex-col">
+            <div class="p-6 border-b border-gray-700">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-id-card text-white text-lg"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-white font-bold text-lg">Synkro</h1>
+                        <p class="text-gray-400 text-xs">Attendance System</p>
+                    </div>
+                </div>
+            </div>
+            
+            <nav class="flex-1 p-4">
+                <a href="#dashboard" class="nav-item active flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-300 hover:text-white mb-2">
+                    <i class="fas fa-tachometer-alt w-5"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#attendance" class="nav-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-300 hover:text-white mb-2">
+                    <i class="fas fa-user-check w-5"></i>
+                    <span>Attendance</span>
+                </a>
+                <a href="#students" class="nav-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-300 hover:text-white mb-2">
+                    <i class="fas fa-graduation-cap w-5"></i>
+                    <span>Students</span>
+                </a>
+                <a href="#reports" class="nav-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-300 hover:text-white mb-2">
+                    <i class="fas fa-chart-line w-5"></i>
+                    <span>Reports</span>
+                </a>
+                <a href="#settings" class="nav-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-300 hover:text-white mb-2">
+                    <i class="fas fa-cog w-5"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            
+            <div class="p-4 border-t border-gray-700">
+                <div class="flex items-center space-x-3">
+                    <img src="https://picsum.photos/seed/admin/40/40" alt="Admin" class="w-10 h-10 rounded-full">
+                    <div>
+                        <p class="text-white font-medium text-sm">Admin User</p>
+                        <p class="text-gray-400 text-xs">Administrator</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="flex-1 overflow-y-auto">
+            <!-- Header -->
+            <header class="bg-white shadow-sm border-b border-gray-200 px-8 py-4">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800">Dashboard Overview</h2>
+                        <p class="text-gray-600 text-sm">Welcome back! Here's your attendance summary.</p>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <button class="relative p-2 text-gray-600 hover:text-gray-800">
+                            <i class="fas fa-bell text-xl"></i>
+                            <span class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
+                        </button>
+                        <button class="p-2 text-gray-600 hover:text-gray-800">
+                            <i class="fas fa-th-large text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Dashboard Content -->
+            <main class="p-8">
+                <!-- Stats Overview -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="stat-card p-6 rounded-xl border border-gray-200">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-user-check text-green-600 text-xl"></i>
+                            </div>
+                            <span class="text-green-600 text-sm font-medium">+12%</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800">245</h3>
+                        <p class="text-gray-600 text-sm">Present Today</p>
+                    </div>
+                    
+                    <div class="stat-card p-6 rounded-xl border border-gray-200">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-user-times text-red-600 text-xl"></i>
+                            </div>
+                            <span class="text-red-600 text-sm font-medium">-5%</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800">12</h3>
+                        <p class="text-gray-600 text-sm">Absent Today</p>
+                    </div>
+                    
+                    <div class="stat-card p-6 rounded-xl border border-gray-200">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-clock text-yellow-600 text-xl"></i>
+                            </div>
+                            <span class="text-yellow-600 text-sm font-medium">+3%</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800">8</h3>
+                        <p class="text-gray-600 text-sm">Late Today</p>
+                    </div>
+                    
+                    <div class="stat-card p-6 rounded-xl border border-gray-200">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-percentage text-gray-600 text-xl"></i>
+                            </div>
+                            <span class="text-green-600 text-sm font-medium">+2%</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800">94.5%</h3>
+                        <p class="text-gray-600 text-sm">Attendance Rate</p>
+                    </div>
+                </div>
+                
+                <!-- Charts and Tables Row -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                    <!-- Attendance Chart -->
+                    <div class="card p-6 rounded-xl">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-lg font-semibold text-gray-800">Weekly Attendance Trend</h3>
+                            <select class="px-3 py-1 border border-gray-300 rounded-lg text-sm">
+                                <option>This Week</option>
+                                <option>Last Week</option>
+                                <option>This Month</option>
+                            </select>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="attendanceChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <!-- Recent Attendance -->
+                    <div class="card p-6 rounded-xl">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-lg font-semibold text-gray-800">Recent Attendance</h3>
+                            <button class="text-blue-600 hover:text-blue-700 text-sm font-medium">
+                                View All <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                        <div class="attendance-table overflow-x-auto">
+                            <table class="w-full">
+                                <thead>
+                                    <tr class="border-b border-gray-200">
+                                        <th class="text-left py-3 px-4 text-gray-700 font-medium">Student</th>
+                                        <th class="text-left py-3 px-4 text-gray-700 font-medium">Status</th>
+                                        <th class="text-left py-3 px-4 text-gray-700 font-medium">Time</th>
+                                        <th class="text-left py-3 px-4 text-gray-700 font-medium">Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                        <td class="py-3 px-4">
+                                            <div class="flex items-center space-x-3">
+                                                <img src="https://picsum.photos/seed/student1/32/32" alt="Student" class="w-8 h-8 rounded-full">
+                                                <div>
+                                                    <p class="font-medium text-gray-800">John Smith</p>
+                                                    <p class="text-xs text-gray-600">ID: STU001</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="py-3 px-4">
+                                            <span class="present px-2 py-1 rounded-full text-xs font-medium">Present</span>
+                                        </td>
+                                        <td class="py-3 px-4 text-gray-600">8:30 AM</td>
+                                        <td class="py-3 px-4 text-gray-600">Today</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                        <td class="py-3 px-4">
+                                            <div class="flex items-center space-x-3">
+                                                <img src="https://picsum.photos/seed/student2/32/32" alt="Student" class="w-8 h-8 rounded-full">
+                                                <div>
+                                                    <p class="font-medium text-gray-800">Sarah Johnson</p>
+                                                    <p class="text-xs text-gray-600">ID: STU002</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="py-3 px-4">
+                                            <span class="late px-2 py-1 rounded-full text-xs font-medium">Late</span>
+                                        </td>
+                                        <td class="py-3 px-4 text-gray-600">9:15 AM</td>
+                                        <td class="py-3 px-4 text-gray-600">Today</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                        <td class="py-3 px-4">
+                                            <div class="flex items-center space-x-3">
+                                                <img src="https://picsum.photos/seed/student3/32/32" alt="Student" class="w-8 h-8 rounded-full">
+                                                <div>
+                                                    <p class="font-medium text-gray-800">Mike Davis</p>
+                                                    <p class="text-xs text-gray-600">ID: STU003</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="py-3 px-4">
+                                            <span class="absent px-2 py-1 rounded-full text-xs font-medium">Absent</span>
+                                        </td>
+                                        <td class="py-3 px-4 text-gray-600">--</td>
+                                        <td class="py-3 px-4 text-gray-600">Today</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                        <td class="py-3 px-4">
+                                            <div class="flex items-center space-x-3">
+                                                <img src="https://picsum.photos/seed/student4/32/32" alt="Student" class="w-8 h-8 rounded-full">
+                                                <div>
+                                                    <p class="font-medium text-gray-800">Emily Brown</p>
+                                                    <p class="text-xs text-gray-600">ID: STU004</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="py-3 px-4">
+                                            <span class="present px-2 py-1 rounded-full text-xs font-medium">Present</span>
+                                        </td>
+                                        <td class="py-3 px-4 text-gray-600">8:45 AM</td>
+                                        <td class="py-3 px-4 text-gray-600">Today</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Quick Actions & History -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Quick Actions -->
+                    <div class="card p-6 rounded-xl">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-6">Quick Actions</h3>
+                        <div class="space-y-3">
+                            <button class="w-full flex items-center space-x-3 px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                                <i class="fas fa-user-plus"></i>
+                                <span>Mark Attendance</span>
+                            </button>
+                            <button class="w-full flex items-center space-x-3 px-4 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                                <i class="fas fa-file-export"></i>
+                                <span>Export Report</span>
+                            </button>
+                            <button class="w-full flex items-center space-x-3 px-4 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
+                                <i class="fas fa-user-clock"></i>
+                                <span>Leave Requests</span>
+                            </button>
+                            <button class="w-full flex items-center space-x-3 px-4 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">
+                                <i class="fas fa-bell"></i>
+                                <span>Send Notifications</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Attendance History -->
+                    <div class="card p-6 rounded-xl lg:col-span-2">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-lg font-semibold text-gray-800">Attendance History</h3>
+                            <div class="flex items-center space-x-2">
+                                <input type="date" class="px-3 py-1 border border-gray-300 rounded-lg text-sm">
+                                <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm">
+                                    Filter
+                                </button>
+                            </div>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead>
+                                    <tr class="border-b border-gray-200">
+                                        <th class="text-left py-3 px-4 text-gray-700 font-medium">Date</th>
+                                        <th class="text-left py-3 px-4 text-gray-700 font-medium">Total Students</th>
+                                        <th class="text-left py-3 px-4 text-gray-700 font-medium">Present</th>
+                                        <th class="text-left py-3 px-4 text-gray-700 font-medium">Absent</th>
+                                        <th class="text-left py-3 px-4 text-gray-700 font-medium">Late</th>
+                                        <th class="text-left py-3 px-4 text-gray-700 font-medium">Attendance Rate</th>
+                                        <th class="text-left py-3 px-4 text-gray-700 font-medium">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                        <td class="py-3 px-4 text-gray-800 font-medium">2024-03-28</td>
+                                        <td class="py-3 px-4 text-gray-600">265</td>
+                                        <td class="py-3 px-4 text-gray-600">250</td>
+                                        <td class="py-3 px-4 text-gray-600">12</td>
+                                        <td class="py-3 px-4 text-gray-600">3</td>
+                                        <td class="py-3 px-4">
+                                            <span class="text-green-600 font-medium">94.3%</span>
+                                        </td>
+                                        <td class="py-3 px-4">
+                                            <button class="text-blue-600 hover:text-blue-700">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                        <td class="py-3 px-4 text-gray-800 font-medium">2024-03-27</td>
+                                        <td class="py-3 px-4 text-gray-600">265</td>
+                                        <td class="py-3 px-4 text-gray-600">248</td>
+                                        <td class="py-3 px-4 text-gray-600">15</td>
+                                        <td class="py-3 px-4 text-gray-600">2</td>
+                                        <td class="py-3 px-4">
+                                            <span class="text-green-600 font-medium">93.6%</span>
+                                        </td>
+                                        <td class="py-3 px-4">
+                                            <button class="text-blue-600 hover:text-blue-700">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                        <td class="py-3 px-4 text-gray-800 font-medium">2024-03-26</td>
+                                        <td class="py-3 px-4 text-gray-600">265</td>
+                                        <td class="py-3 px-4 text-gray-600">255</td>
+                                        <td class="py-3 px-4 text-gray-600">8</td>
+                                        <td class="py-3 px-4 text-gray-600">2</td>
+                                        <td class="py-3 px-4">
+                                            <span class="text-green-600 font-medium">96.2%</span>
+                                        </td>
+                                        <td class="py-3 px-4">
+                                            <button class="text-blue-600 hover:text-blue-700">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                        <td class="py-3 px-4 text-gray-800 font-medium">2024-03-25</td>
+                                        <td class="py-3 px-4 text-gray-600">265</td>
+                                        <td class="py-3 px-4 text-gray-600">252</td>
+                                        <td class="py-3 px-4 text-gray-600">10</td>
+                                        <td class="py-3 px-4 text-gray-600">3</td>
+                                        <td class="py-3 px-4">
+                                            <span class="text-green-600 font-medium">95.1%</span>
+                                        </td>
+                                        <td class="py-3 px-4">
+                                            <button class="text-blue-600 hover:text-blue-700">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <script>
+        // Initialize Chart
+        const ctx = document.getElementById('attendanceChart').getContext('2d');
+        const attendanceChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+                datasets: [{
+                    label: 'Present',
+                    data: [248, 252, 245, 250, 245],
+                    borderColor: '#10b981',
+                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                    tension: 0.4
+                }, {
+                    label: 'Absent',
+                    data: [12, 8, 15, 10, 12],
+                    borderColor: '#ef4444',
+                    backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                    tension: 0.4
+                }, {
+                    label: 'Late',
+                    data: [5, 5, 5, 5, 8],
+                    borderColor: '#f59e0b',
+                    backgroundColor: 'rgba(245, 158, 11, 0.1)',
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Add animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.stat-card, .card');
+            elements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add('animate-slide-in');
+                }, index * 100);
+            });
+        });
+        
+        // Navigation active state
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
