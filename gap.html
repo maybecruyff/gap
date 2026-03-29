@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAP Solutions - Innovative Technology Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="gap-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gradient-to-br from-slate-50 to-blue-50 font-inter">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-lg border-b border-gray-200/50 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">GAP</span>
+                    </div>
+                    <span class="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Solutions</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Home</a>
+                    <a href="#services" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Services</a>
+                    <a href="#products" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Products</a>
+                    <a href="#solutions" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Solutions</a>
+                    <a href="#about" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">About</a>
+                    <a href="#stats" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Impact</a>
+                    <a href="#contact" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button id="loginBtn" class="px-4 py-2 text-blue-600 hover:text-blue-700 font-medium transition-colors">
+                        Log In
+                    </button>
+                    <button id="signupBtn" class="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200">
+                        Get Started
+                    </button>
+                    <button id="mobileMenuBtn" class="md:hidden text-gray-700">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="container mx-auto px-6 py-4 space-y-3">
+                <a href="#home" class="block text-gray-700 hover:text-blue-600 font-medium">Home</a>
+                <a href="#services" class="block text-gray-700 hover:text-blue-600 font-medium">Services</a>
+                <a href="#products" class="block text-gray-700 hover:text-blue-600 font-medium">Products</a>
+                <a href="#solutions" class="block text-gray-700 hover:text-blue-600 font-medium">Solutions</a>
+                <a href="#about" class="block text-gray-700 hover:text-blue-600 font-medium">About</a>
+                <a href="#stats" class="block text-gray-700 hover:text-blue-600 font-medium">Impact</a>
+                <a href="#contact" class="block text-gray-700 hover:text-blue-600 font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-20 px-6">
+        <div class="container mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="space-y-4">
+                        <h1 class="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                            Transform Your Business with
+                            <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> GAP Solutions</span>
+                        </h1>
+                        <p class="text-xl text-gray-600 leading-relaxed">
+                            Innovative technology solutions that drive growth, efficiency, and digital transformation for modern businesses.
+                        </p>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200">
+                            Explore Solutions
+                        </button>
+                        <button class="px-8 py-4 border-2 border-gray-300 text-gray-700 rounded-xl font-semibold hover:border-blue-600 hover:text-blue-600 transition-all duration-200">
+                            Watch Demo
+                        </button>
+                    </div>
+                    
+                    <div class="flex items-center space-x-8 pt-4">
+                        <div>
+                            <div class="text-3xl font-bold text-gray-900 counter" data-target="500">0</div>
+                            <div class="text-gray-600">Happy Clients</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-gray-900 counter" data-target="50">0</div>
+                            <div class="text-gray-600">Products</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-gray-900 counter" data-target="99">0</div>
+                            <div class="text-gray-600">% Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-3xl transform rotate-3 opacity-20"></div>
+                    <div class="relative bg-white rounded-3xl shadow-2xl p-8">
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="space-y-4">
+                                <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center">
+                                    <i class="fas fa-microchip text-white text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-900">IoT Solutions</h3>
+                                    <p class="text-gray-600 text-sm">Connected devices</p>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center">
+                                    <i class="fas fa-cloud text-white text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-900">Cloud Services</h3>
+                                    <p class="text-gray-600 text-sm">Scalable infrastructure</p>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center">
+                                    <i class="fas fa-shield-alt text-white text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-900">Security</h3>
+                                    <p class="text-gray-600 text-sm">Advanced protection</p>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center">
+                                    <i class="fas fa-chart-line text-white text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-900">Analytics</h3>
+                                    <p class="text-gray-600 text-sm">Data insights</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Comprehensive solutions tailored to meet your business needs and drive digital transformation
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card group">
+                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 h-full hover:shadow-xl transition-all duration-300 border border-blue-100">
+                        <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-code text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Software Development</h3>
+                        <p class="text-gray-600 mb-4">Custom software solutions built with cutting-edge technologies to streamline your operations.</p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li><i class="fas fa-check text-blue-500 mr-2"></i>Web Applications</li>
+                            <li><i class="fas fa-check text-blue-500 mr-2"></i>Mobile Apps</li>
+                            <li><i class="fas fa-check text-blue-500 mr-2"></i>Enterprise Solutions</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="service-card group">
+                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 h-full hover:shadow-xl transition-all duration-300 border border-purple-100">
+                        <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-network-wired text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">IT Infrastructure</h3>
+                        <p class="text-gray-600 mb-4">Robust infrastructure solutions to support your growing business needs.</p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li><i class="fas fa-check text-purple-500 mr-2"></i>Network Setup</li>
+                            <li><i class="fas fa-check text-purple-500 mr-2"></i>Cloud Migration</li>
+                            <li><i class="fas fa-check text-purple-500 mr-2"></i>Server Management</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="service-card group">
+                    <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 h-full hover:shadow-xl transition-all duration-300 border border-green-100">
+                        <div class="w-14 h-14 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-lock text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Cybersecurity</h3>
+                        <p class="text-gray-600 mb-4">Advanced security solutions to protect your digital assets and data.</p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Security Audits</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Threat Detection</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Compliance Management</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section class="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Trusted by Leading Institutions</h2>
+                <p class="text-lg text-gray-600">Partnering with organizations that value innovation and excellence</p>
+            </div>
+            
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+                <div class="text-gray-400 hover:text-blue-600 transition-colors transform hover:scale-105">
+                    <svg class="w-32 h-12" viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg">
+                        <text x="5" y="20" fill="currentColor" font-family="Inter" font-weight="bold" font-size="14">UNIVERSITY</text>
+                    </svg>
+                </div>
+                <div class="text-gray-400 hover:text-purple-600 transition-colors transform hover:scale-105">
+                    <svg class="w-32 h-12" viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg">
+                        <text x="5" y="20" fill="currentColor" font-family="Inter" font-weight="bold" font-size="14">ACADEMY</text>
+                    </svg>
+                </div>
+                <div class="text-gray-400 hover:text-green-600 transition-colors transform hover:scale-105">
+                    <svg class="w-32 h-12" viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg">
+                        <text x="5" y="20" fill="currentColor" font-family="Inter" font-weight="bold" font-size="14">INSTITUTE</text>
+                    </svg>
+                </div>
+                <div class="text-gray-400 hover:text-orange-600 transition-colors transform hover:scale-105">
+                    <svg class="w-32 h-12" viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg">
+                        <text x="5" y="20" fill="currentColor" font-family="Inter" font-weight="bold" font-size="14">COLLEGE</text>
+                    </svg>
+                </div>
+                <div class="text-gray-400 hover:text-pink-600 transition-colors transform hover:scale-105">
+                    <svg class="w-32 h-12" viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg">
+                        <text x="5" y="20" fill="currentColor" font-family="Inter" font-weight="bold" font-size="14">SCHOOL</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Our <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Products</span></h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Discover our suite of educational technology products designed to transform the learning experience.
+                </p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center gap-12 mb-20">
+                <div class="md:w-1/2">
+                    <div class="relative">
+                        <div class="aspect-video bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl overflow-hidden border border-gray-200 shadow-lg">
+                            <svg class="w-full h-full" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="synkroGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
+                                
+                                <!-- Background -->
+                                <rect width="600" height="400" fill="#f8fafc" />
+                                
+                                <!-- App Interface -->
+                                <rect x="50" y="50" width="500" height="300" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+                                
+                                <!-- Header -->
+                                <rect x="50" y="50" width="500" height="50" rx="10" fill="url(#synkroGrad)" />
+                                <text x="80" y="82" fill="white" font-size="20" font-weight="bold">Synkro</text>
+                                
+                                <!-- Sidebar -->
+                                <rect x="50" y="100" width="120" height="250" fill="#f8fafc" />
+                                
+                                <!-- Menu Items -->
+                                <rect x="60" y="120" width="100" height="30" rx="5" fill="#e2e8f0" />
+                                <text x="75" y="140" fill="#475569" font-size="12">Dashboard</text>
+                                
+                                <rect x="60" y="160" width="100" height="30" rx="5" fill="#ffffff" />
+                                <text x="75" y="180" fill="#94a3b8" font-size="12">Courses</text>
+                                
+                                <rect x="60" y="200" width="100" height="30" rx="5" fill="#ffffff" />
+                                <text x="75" y="220" fill="#94a3b8" font-size="12">Analytics</text>
+                                
+                                <rect x="60" y="240" width="100" height="30" rx="5" fill="#ffffff" />
+                                <text x="75" y="260" fill="#94a3b8" font-size="12">Calendar</text>
+                                
+                                <!-- Main Content -->
+                                <rect x="180" y="110" width="360" height="230" rx="5" fill="#ffffff" />
+                                
+                                <!-- Content Elements -->
+                                <rect x="200" y="130" width="150" height="15" rx="2" fill="#3b82f6" opacity="0.7" />
+                                <rect x="200" y="155" width="320" height="10" rx="2" fill="#e2e8f0" />
+                                <rect x="200" y="175" width="280" height="10" rx="2" fill="#e2e8f0" />
+                                
+                                <!-- Cards -->
+                                <rect x="200" y="205" width="150" height="100" rx="5" fill="#f1f5f9" />
+                                <rect x="210" y="215" width="130" height="60" rx="3" fill="#ffffff" />
+                                <rect x="210" y="285" width="80" height="10" rx="2" fill="#3b82f6" opacity="0.7" />
+                                
+                                <rect x="370" y="205" width="150" height="100" rx="5" fill="#f1f5f9" />
+                                <rect x="380" y="215" width="130" height="60" rx="3" fill="#ffffff" />
+                                <rect x="380" y="285" width="80" height="10" rx="2" fill="#3b82f6" opacity="0.7" />
+                                
+                                <!-- Decorative Elements -->
+                                <circle cx="520" cy="75" r="10" fill="#3b82f6" opacity="0.5" />
+                                <circle cx="490" cy="75" r="10" fill="#8b5cf6" opacity="0.3" />
+                            </svg>
+                        </div>
+                        
+                        <!-- Decorative Elements -->
+                        <div class="absolute -top-5 -left-5 w-20 h-20 bg-blue-500/10 rounded-full blur-xl"></div>
+                        <div class="absolute -bottom-5 -right-5 w-20 h-20 bg-purple-500/10 rounded-full blur-xl"></div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center mr-3">
+                            <i class="fas fa-sync-alt text-blue-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900">Synkro</h3>
+                    </div>
+                    
+                    <p class="text-gray-600 mb-6">
+                        Our flagship learning management system that synchronizes all aspects of the educational experience. Synkro provides a seamless platform for course delivery, student engagement, and performance tracking.
+                    </p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500 mr-3 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Unified Learning Experience</h4>
+                                <p class="text-gray-600 text-sm">Seamlessly integrates all aspects of the learning journey</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500 mr-3 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Adaptive Learning Paths</h4>
+                                <p class="text-gray-600 text-sm">Personalized learning experiences based on student performance</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500 mr-3 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Comprehensive Analytics</h4>
+                                <p class="text-gray-600 text-sm">Deep insights into student engagement and performance</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="synkro-dashboard.html" class="px-8 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold text-lg shadow-lg hover:scale-105 transition-transform duration-200 block text-center">
+                        Learn More About Synkro
+                    </a>
+                </div>
+            </div>
+            
+            <div class="flex flex-col-reverse md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-purple-500/10 flex items-center justify-center mr-3">
+                            <i class="fas fa-brain text-purple-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900">EduAI</h3>
+                    </div>
+                    
+                    <p class="text-gray-600 mb-6">
+                        Our AI-powered tutoring and assessment platform that provides personalized learning support and automated grading to enhance the educational experience.
+                    </p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-500 mr-3 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">24/7 AI Tutoring</h4>
+                                <p class="text-gray-600 text-sm">Always available learning support for students</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-500 mr-3 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Automated Assessment</h4>
+                                <p class="text-gray-600 text-sm">Intelligent grading and feedback for assignments</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-500 mr-3 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Learning Gap Analysis</h4>
+                                <p class="text-gray-600 text-sm">Identifies knowledge gaps and recommends targeted resources</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="px-8 py-3 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold text-lg shadow-lg hover:scale-105 transition-transform duration-200 w-full">
+                        Discover EduAI
+                    </button>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="relative">
+                        <div class="aspect-video bg-gradient-to-br from-gray-50 to-purple-50 rounded-2xl overflow-hidden border border-gray-200 shadow-lg">
+                            <svg class="w-full h-full" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="eduaiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+                                    </linearGradient>
+                                    <radialGradient id="glowGrad" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                                        <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.3" />
+                                        <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0" />
+                                    </radialGradient>
+                                </defs>
+                                
+                                <!-- Background -->
+                                <rect width="600" height="400" fill="#f8fafc" />
+                                
+                                <!-- Glow Effect -->
+                                <circle cx="300" cy="200" r="150" fill="url(#glowGrad)" />
+                                
+                                <!-- Chat Interface -->
+                                <rect x="100" y="80" width="400" height="240" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+                                
+                                <!-- Header -->
+                                <rect x="100" y="80" width="400" height="40" rx="10" fill="url(#eduaiGrad)" />
+                                <text x="130" y="105" fill="white" font-size="16" font-weight="bold">EduAI Assistant</text>
+                                
+                                <!-- Chat Messages -->
+                                <rect x="120" y="140" width="240" height="40" rx="20" fill="#f1f5f9" />
+                                <text x="140" y="165" fill="#475569" font-size="12">How do I solve this equation?</text>
+                                
+                                <rect x="240" y="190" width="240" height="60" rx="20" fill="#8b5cf6" opacity="0.8" />
+                                <text x="260" y="215" fill="white" font-size="12">Let me guide you through the steps:</text>
+                                <text x="260" y="235" fill="white" font-size="12">First, isolate the variable by...</text>
+                                
+                                <!-- Input Area -->
+                                <rect x="120" y="270" width="320" height="30" rx="15" fill="#f1f5f9" />
+                                <text x="140" y="290" fill="#94a3b8" font-size="12">Type your question...</text>
+                                
+                                <circle cx="460" cy="285" r="15" fill="url(#eduaiGrad)" />
+                                <text x="456" y="290" fill="white" font-size="16" font-weight="bold">→</text>
+                                
+                                <!-- AI Brain Visualization -->
+                                <g transform="translate(300, 40) scale(0.15)">
+                                    <circle cx="0" cy="0" r="100" fill="none" stroke="url(#eduaiGrad)" stroke-width="10" />
+                                    <circle cx="0" cy="0" r="70" fill="none" stroke="url(#eduaiGrad)" stroke-width="8" opacity="0.7" />
+                                    <circle cx="0" cy="0" r="40" fill="none" stroke="url(#eduaiGrad)" stroke-width="6" opacity="0.5" />
+                                    
+                                    <!-- Neural Network Nodes -->
+                                    <circle cx="-80" cy="-50" r="15" fill="#8b5cf6" />
+                                    <circle cx="80" cy="-50" r="15" fill="#8b5cf6" />
+                                    <circle cx="-50" cy="80" r="15" fill="#8b5cf6" />
+                                    <circle cx="50" cy="80" r="15" fill="#8b5cf6" />
+                                    <circle cx="0" cy="0" r="20" fill="#ec4899" />
+                                    
+                                    <!-- Connections -->
+                                    <line x1="-80" y1="-50" x2="0" y2="0" stroke="#8b5cf6" stroke-width="3" />
+                                    <line x1="80" y1="-50" x2="0" y2="0" stroke="#8b5cf6" stroke-width="3" />
+                                    <line x1="-50" y1="80" x2="0" y2="0" stroke="#8b5cf6" stroke-width="3" />
+                                    <line x1="50" y1="80" x2="0" y2="0" stroke="#8b5cf6" stroke-width="3" />
+                                </g>
+                            </svg>
+                        </div>
+                        
+                        <!-- Decorative Elements -->
+                        <div class="absolute -top-5 -right-5 w-20 h-20 bg-purple-500/10 rounded-full blur-xl"></div>
+                        <div class="absolute -bottom-5 -left-5 w-20 h-20 bg-pink-500/10 rounded-full blur-xl"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">About <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">GAP Solutions</span></h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    We're on a mission to revolutionize education through innovative technology solutions that connect, engage, and inspire.
+                </p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <div class="relative">
+                        <div class="aspect-video bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl overflow-hidden border border-gray-200 shadow-lg">
+                            <svg class="w-full h-full" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#f8fafc;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#e0f2fe;stop-opacity:1" />
+                                    </linearGradient>
+                                    <linearGradient id="chartGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.8" />
+                                        <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.1" />
+                                    </linearGradient>
+                                </defs>
+                                
+                                <!-- Background -->
+                                <rect width="600" height="400" fill="url(#bgGrad)" />
+                                
+                                <!-- Grid Lines -->
+                                <g stroke="#e2e8f0" stroke-width="1" opacity="0.5">
+                                    <line x1="50" y1="50" x2="550" y2="50" />
+                                    <line x1="50" y1="100" x2="550" y2="100" />
+                                    <line x1="50" y1="150" x2="550" y2="150" />
+                                    <line x1="50" y1="200" x2="550" y2="200" />
+                                    <line x1="50" y1="250" x2="550" y2="250" />
+                                    <line x1="50" y1="300" x2="550" y2="300" />
+                                    <line x1="50" y1="350" x2="550" y2="350" />
+                                    
+                                    <line x1="100" y1="50" x2="100" y2="350" />
+                                    <line x1="200" y1="50" x2="200" y2="350" />
+                                    <line x1="300" y1="50" x2="300" y2="350" />
+                                    <line x1="400" y1="50" x2="400" y2="350" />
+                                    <line x1="500" y1="50" x2="500" y2="350" />
+                                </g>
+                                
+                                <!-- Chart -->
+                                <polyline 
+                                    points="50,300 100,280 150,260 200,220 250,240 300,180 350,150 400,120 450,100 500,80 550,60" 
+                                    fill="none" 
+                                    stroke="#3b82f6" 
+                                    stroke-width="3" 
+                                />
+                                
+                                <!-- Area under chart -->
+                                <path 
+                                    d="M50,300 L100,280 L150,260 L200,220 L250,240 L300,180 L350,150 L400,120 L450,100 L500,80 L550,60 L550,350 L50,350 Z" 
+                                    fill="url(#chartGrad)" 
+                                />
+                                
+                                <!-- Data Points -->
+                                <circle cx="50" cy="300" r="5" fill="#3b82f6" />
+                                <circle cx="100" cy="280" r="5" fill="#3b82f6" />
+                                <circle cx="150" cy="260" r="5" fill="#3b82f6" />
+                                <circle cx="200" cy="220" r="5" fill="#3b82f6" />
+                                <circle cx="250" cy="240" r="5" fill="#3b82f6" />
+                                <circle cx="300" cy="180" r="5" fill="#3b82f6" />
+                                <circle cx="350" cy="150" r="5" fill="#3b82f6" />
+                                <circle cx="400" cy="120" r="5" fill="#3b82f6" />
+                                <circle cx="450" cy="100" r="5" fill="#3b82f6" />
+                                <circle cx="500" cy="80" r="5" fill="#3b82f6" />
+                                <circle cx="550" cy="60" r="5" fill="#3b82f6" />
+                                
+                                <!-- Labels -->
+                                <text x="300" y="30" text-anchor="middle" fill="#1e293b" font-size="16" font-weight="600">Student Performance Growth</text>
+                            </svg>
+                        </div>
+                        
+                        <!-- Decorative Elements -->
+                        <div class="absolute -top-5 -left-5 w-20 h-20 bg-blue-500/10 rounded-full blur-xl"></div>
+                        <div class="absolute -bottom-5 -right-5 w-20 h-20 bg-purple-500/10 rounded-full blur-xl"></div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Pioneering Educational Excellence Since 2010</h3>
+                    <p class="text-gray-600 mb-6">
+                        GAP Solutions was founded with a clear vision: to bridge the gap between traditional education and modern technology. We've spent over a decade developing innovative platforms that transform how students learn and educators teach.
+                    </p>
+                    <p class="text-gray-600 mb-8">
+                        Our flagship product, Synkro, represents the culmination of our expertise in educational technology, providing a comprehensive platform that synchronizes learning experiences across multiple environments.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="flex items-start">
+                            <div class="mr-4 text-blue-500 text-2xl">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1">Expert Team</h4>
+                                <p class="text-gray-600 text-sm">Educators and developers working together</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="mr-4 text-purple-500 text-2xl">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1">Data-Driven</h4>
+                                <p class="text-gray-600 text-sm">Research-backed learning solutions</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="mr-4 text-green-500 text-2xl">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1">Global Reach</h4>
+                                <p class="text-gray-600 text-sm">Serving institutions worldwide</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="mr-4 text-orange-500 text-2xl">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1">Innovative</h4>
+                                <p class="text-gray-600 text-sm">Constantly evolving our solutions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Solutions Section -->
+    <section id="solutions" class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Our <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Solutions</span></h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Comprehensive educational technology solutions designed to meet the evolving needs of modern learning environments.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+                    <div class="w-16 h-16 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-laptop-code text-3xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Learning Management</h3>
+                    <p class="text-gray-600 mb-6">
+                        Comprehensive platform for course creation, delivery, and management with advanced analytics and reporting.
+                    </p>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500 mr-3" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-gray-700">Interactive course builder</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500 mr-3" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-gray-700">Student progress tracking</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500 mr-3" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-gray-700">Advanced analytics</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="text-blue-600 hover:text-blue-700 font-semibold flex items-center group">
+                        Learn more
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+                    <div class="w-16 h-16 bg-purple-500/10 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-users text-3xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Collaborative Learning</h3>
+                    <p class="text-gray-600 mb-6">
+                        Tools that facilitate collaboration between students and educators, fostering a dynamic learning community.
+                    </p>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-500 mr-3" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-gray-700">Real-time collaboration</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-500 mr-3" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-gray-700">Discussion forums</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-500 mr-3" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-gray-700">Group project tools</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="text-purple-600 hover:text-purple-700 font-semibold flex items-center group">
+                        Learn more
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+                    <div class="w-16 h-16 bg-green-500/10 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-pie text-3xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Data Analytics</h3>
+                    <p class="text-gray-600 mb-6">
+                        Powerful analytics tools that provide insights into student performance and learning patterns.
+                    </p>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-gray-700">Performance dashboards</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-gray-700">Predictive analytics</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-gray-700">Custom reporting</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="text-green-600 hover:text-green-700 font-semibold flex items-center group">
+                        Learn more
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Statistics Section -->
+    <section id="stats" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Impact</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Numbers that speak volumes about our commitment to excellence
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="stat-card text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-building text-white text-2xl"></i>
+                    </div>
+                    <div class="text-4xl font-bold text-gray-900 counter" data-target="500">0</div>
+                    <div class="text-gray-600 font-medium">Clients Worldwide</div>
+                    <div class="text-sm text-gray-500 mt-2">+15% this year</div>
+                </div>
+                
+                <div class="stat-card text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-project-diagram text-white text-2xl"></i>
+                    </div>
+                    <div class="text-4xl font-bold text-gray-900 counter" data-target="1200">0</div>
+                    <div class="text-gray-600 font-medium">Projects Completed</div>
+                    <div class="text-sm text-gray-500 mt-2">98% on time</div>
+                </div>
+                
+                <div class="stat-card text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-users text-white text-2xl"></i>
+                    </div>
+                    <div class="text-4xl font-bold text-gray-900 counter" data-target="50000">0</div>
+                    <div class="text-gray-600 font-medium">Active Users</div>
+                    <div class="text-sm text-gray-500 mt-2">Growing daily</div>
+                </div>
+                
+                <div class="stat-card text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-award text-white text-2xl"></i>
+                    </div>
+                    <div class="text-4xl font-bold text-gray-900 counter" data-target="25">0</div>
+                    <div class="text-gray-600 font-medium">Industry Awards</div>
+                    <div class="text-sm text-gray-500 mt-2">Excellence recognized</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+                    <p class="text-xl text-gray-600">Ready to transform your business? Let's talk about your needs.</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <form id="contactForm" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">First Name</label>
+                                <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">Last Name</label>
+                                <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Email Address</label>
+                            <input type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Company</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Message</label>
+                            <textarea rows="4" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">GAP</span>
+                        </div>
+                        <span class="text-xl font-bold">Solutions</span>
+                    </div>
+                    <p class="text-gray-400">Innovative technology solutions for modern businesses.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Software Development</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">IT Infrastructure</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Cybersecurity</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Cloud Services</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Products</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="synkro-dashboard.html" class="hover:text-white transition-colors">Synkro</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">DataHub</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">TeamFlow</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">SecureNet</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Connect</h4>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400">info@gapsolutions.com</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 GAP Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="gap-script.js"></script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - GAP Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="gap-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 flex items-center justify-center p-4">
+    <!-- Background Animation -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-green-400 to-blue-600 rounded-full opacity-20 floating"></div>
+        <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-blue-400 to-purple-600 rounded-full opacity-20 floating" style="animation-delay: 2s;"></div>
+        <div class="absolute top-1/2 left-1/2 w-60 h-60 bg-gradient-to-br from-purple-400 to-pink-600 rounded-full opacity-20 floating" style="animation-delay: 4s;"></div>
+    </div>
+    
+    <!-- Signup Container -->
+    <div class="relative z-10 w-full max-w-lg">
+        <div class="bg-white/80 backdrop-blur-lg rounded-2xl shadow-2xl border border-white/20 p-8">
+            <!-- Logo Section -->
+            <div class="text-center mb-8">
+                <div class="inline-flex items-center space-x-2 mb-4">
+                    <div class="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center">
+                        <span class="text-white font-bold text-xl">GAP</span>
+                    </div>
+                    <span class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Solutions</span>
+                </div>
+                <h1 class="text-3xl font-bold text-gray-900 mb-2">Create Account</h1>
+                <p class="text-gray-600">Join GAP Solutions and transform your business</p>
+            </div>
+            
+            <!-- Signup Form -->
+            <form id="signupForm" class="space-y-6">
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="form-group">
+                        <label class="block text-gray-700 font-medium mb-2">First Name</label>
+                        <input type="text" id="firstName" required class="form-input" placeholder="John">
+                    </div>
+                    <div class="form-group">
+                        <label class="block text-gray-700 font-medium mb-2">Last Name</label>
+                        <input type="text" id="lastName" required class="form-input" placeholder="Doe">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="block text-gray-700 font-medium mb-2">Email Address</label>
+                    <div class="relative">
+                        <input type="email" id="email" required class="form-input pl-12" placeholder="john@example.com">
+                        <i class="fas fa-envelope absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="block text-gray-700 font-medium mb-2">Password</label>
+                    <div class="relative">
+                        <input type="password" id="password" required class="form-input pl-12 pr-12" placeholder="Create a strong password">
+                        <i class="fas fa-lock absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        <button type="button" id="togglePassword" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="mt-2">
+                        <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                            <div id="passwordStrength" class="h-full transition-all duration-300" style="width: 0%"></div>
+                        </div>
+                        <p id="strengthText" class="text-xs text-gray-500 mt-1">Password strength</p>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="block text-gray-700 font-medium mb-2">Company</label>
+                    <div class="relative">
+                        <input type="text" id="company" class="form-input pl-12" placeholder="Your company name">
+                        <i class="fas fa-building absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="block text-gray-700 font-medium mb-2">Role</label>
+                    <div class="relative">
+                        <select id="role" required class="form-input pl-12 appearance-none">
+                            <option value="">Select your role</option>
+                            <option value="ceo">CEO/Executive</option>
+                            <option value="manager">Manager</option>
+                            <option value="developer">Developer</option>
+                            <option value="designer">Designer</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <i class="fas fa-user-tie absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        <i class="fas fa-chevron-down absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="flex items-center">
+                        <input type="checkbox" id="terms" required class="mr-2 rounded border-gray-300">
+                        <span class="text-sm text-gray-600">
+                            I agree to the <a href="#" class="text-blue-600 hover:text-blue-700">Terms of Service</a> and 
+                            <a href="#" class="text-blue-600 hover:text-blue-700">Privacy Policy</a>
+                        </span>
+                    </label>
+                </div>
+                
+                <button type="submit" class="w-full btn-primary text-lg py-3">
+                    Create Account
+                </button>
+            </form>
+            
+            <!-- Social Signup -->
+            <div class="mt-8">
+                <div class="relative">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full border-t border-gray-300"></div>
+                    </div>
+                    <div class="relative flex justify-center text-sm">
+                        <span class="px-4 bg-white text-gray-500">Or sign up with</span>
+                    </div>
+                </div>
+                
+                <div class="mt-6 grid grid-cols-2 gap-3">
+                    <button type="button" class="flex items-center justify-center px-4 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+                        <i class="fab fa-google text-red-500 mr-2"></i>
+                        Google
+                    </button>
+                    <button type="button" class="flex items-center justify-center px-4 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+                        <i class="fab fa-microsoft text-blue-600 mr-2"></i>
+                        Microsoft
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Login Link -->
+            <div class="mt-8 text-center">
+                <p class="text-gray-600">
+                    Already have an account? 
+                    <a href="gap-login.html" class="text-blue-600 hover:text-blue-700 font-medium">Sign in</a>
+                </p>
+            </div>
+            
+            <!-- Back to Home -->
+            <div class="mt-6 text-center">
+                <a href="gap.html" class="text-sm text-gray-500 hover:text-gray-700 flex items-center justify-center">
+                    <i class="fas fa-arrow-left mr-2"></i>
+                    Back to Home
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Password Toggle
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+        
+        togglePassword.addEventListener('click', function() {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
+        });
+        
+        // Password Strength Checker
+        passwordInput.addEventListener('input', function() {
+            const password = this.value;
+            const strengthBar = document.getElementById('passwordStrength');
+            const strengthText = document.getElementById('strengthText');
+            
+            let strength = 0;
+            
+            // Check password strength
+            if (password.length >= 8) strength++;
+            if (password.match(/[a-z]/) && password.match(/[A-Z]/)) strength++;
+            if (password.match(/[0-9]/)) strength++;
+            if (password.match(/[^a-zA-Z0-9]/)) strength++;
+            
+            // Update strength bar
+            const strengthLevels = {
+                0: { width: '0%', color: '#EF4444', text: 'Very Weak' },
+                1: { width: '25%', color: '#EF4444', text: 'Weak' },
+                2: { width: '50%', color: '#F59E0B', text: 'Fair' },
+                3: { width: '75%', color: '#10B981', text: 'Good' },
+                4: { width: '100%', color: '#10B981', text: 'Strong' }
+            };
+            
+            const level = strengthLevels[strength];
+            strengthBar.style.width = level.width;
+            strengthBar.style.backgroundColor = level.color;
+            strengthText.textContent = level.text;
+            strengthText.style.color = level.color;
+        });
+        
+        // Form Submission
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value,
+                company: document.getElementById('company').value,
+                role: document.getElementById('role').value
+            };
+            
+            // Validate password strength
+            if (formData.password.length < 8) {
+                showNotification('Password must be at least 8 characters long', 'error');
+                return;
+            }
+            
+            // Show loading state
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Creating account...';
+            submitBtn.disabled = true;
+            
+            // Simulate account creation
+            setTimeout(() => {
+                // Store user data
+                localStorage.setItem('userData', JSON.stringify(formData));
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('userEmail', formData.email);
+                
+                showNotification('Account created successfully! Welcome to GAP Solutions.', 'success');
+                setTimeout(() => {
+                    window.location.href = 'gap.html';
+                }, 1500);
+            }, 1500);
+        });
+        
+        // Notification Function
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg transform translate-x-full transition-all duration-300`;
+            
+            const colors = {
+                success: 'bg-green-500',
+                error: 'bg-red-500',
+                info: 'bg-blue-500',
+                warning: 'bg-yellow-500'
+            };
+            
+            notification.classList.add(colors[type] || colors.info, 'text-white');
+            notification.innerHTML = `
+                <div class="flex items-center">
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'} mr-3"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.classList.remove('translate-x-full');
+            }, 100);
+            
+            setTimeout(() => {
+                notification.classList.add('translate-x-full');
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+        
+        // Check if already logged in
+        if (localStorage.getItem('isLoggedIn') === 'true') {
+            window.location.href = 'gap.html';
+        }
+    </script>
+</body>
+</html>
